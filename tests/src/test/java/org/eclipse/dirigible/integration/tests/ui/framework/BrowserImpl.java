@@ -36,7 +36,6 @@ public class BrowserImpl implements Browser {
 
     public BrowserImpl(int localServerPort) {
         this.localServerPort = localServerPort;
-        Configuration.baseUrl = createAppUrl("");
     }
 
     @Override
