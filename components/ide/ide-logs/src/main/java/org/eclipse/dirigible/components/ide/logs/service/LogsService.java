@@ -20,14 +20,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.commons.io.IOUtils;
-import org.eclipse.dirigible.commons.api.helpers.GsonHelper;
 import org.eclipse.dirigible.commons.config.Configuration;
 import org.eclipse.dirigible.components.ide.logs.dto.LogInfo;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
-
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.Logger;
 import ch.qos.logback.classic.LoggerContext;
@@ -83,15 +80,8 @@ public class LogsService {
     public String get(String file) throws IOException {
         String logsFolder = getLogsLocation();
         Path path = Paths.get(logsFolder, file);
-        FileInputStream input = null;
-        try {
-            input = new FileInputStream(path.toFile());
-            String content = new String(IOUtils.toByteArray(input), StandardCharsets.UTF_8);
-            return content;
-        } finally {
-            if (input != null) {
-                input.close();
-            }
+        try (FileInputStream input = new FileInputStream(path.toFile())) {
+            return new String(IOUtils.toByteArray(input), StandardCharsets.UTF_8);
         }
     }
 
@@ -144,7 +134,8 @@ public class LogsService {
         org.slf4j.Logger logger = LoggerFactory.getLogger(loggerName);
         if (logger.isTraceEnabled()) {
             return Level.TRACE.toString();
-        } else if (logger.isDebugEnabled()) {
+        }
+        if (logger.isDebugEnabled()) {
             return Level.DEBUG.toString();
         } else if (logger.isInfoEnabled()) {
             return Level.INFO.toString();
