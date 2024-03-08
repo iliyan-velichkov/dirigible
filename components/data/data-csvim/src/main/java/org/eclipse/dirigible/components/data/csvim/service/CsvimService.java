@@ -17,12 +17,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * The Class ExtensionsCoreService.
+ * The Class CsvimService.
  */
 @Service
 @Transactional
 public class CsvimService extends BaseArtefactService<Csvim, Long> {
 
+    /**
+     * Instantiates a new csvim service.
+     *
+     * @param repository the repository
+     */
     public CsvimService(CsvimRepository repository) {
         super(repository);
     }

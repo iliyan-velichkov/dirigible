@@ -48,7 +48,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
- * The Class CSVIM Synchronizer.
+ * The Class CsvimSynchronizer.
  */
 @Component
 @Order(SynchronizersOrder.CSVIM)
@@ -383,7 +383,7 @@ public class CsvimSynchronizer extends MultitenantBaseSynchronizer<Csvim, Long> 
     /**
      * Checks if is multitenant artefact.
      *
-     * @param csvim the csvim
+     * @param artefact the artefact
      * @return true, if is multitenant artefact
      */
     @Override

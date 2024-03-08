@@ -114,6 +114,8 @@ public class CsvimProcessor {
      * Instantiates a new csvim processor.
      *
      * @param csvProcessor the csvprocessor service
+     * @param datasourcesManager the datasources manager
+     * @param defaultDataSourceName the default data source name
      */
     @Autowired
     public CsvimProcessor(CsvProcessor csvProcessor, DataSourcesManager datasourcesManager,
@@ -133,6 +135,11 @@ public class CsvimProcessor {
         return strictMode;
     }
 
+    /**
+     * Sets the strict mode.
+     *
+     * @param strictMode the new strict mode
+     */
     void setStrictMode(boolean strictMode) {
         this.strictMode = strictMode;
     }

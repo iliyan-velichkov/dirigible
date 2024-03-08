@@ -390,10 +390,20 @@ public class CsvFile extends Artefact {
         this.csvim = csvim;
     }
 
+    /**
+     * Gets the upsert.
+     *
+     * @return the upsert
+     */
     public Boolean getUpsert() {
         return upsert;
     }
 
+    /**
+     * Sets the upsert.
+     *
+     * @param upsert the new upsert
+     */
     public void setUpsert(Boolean upsert) {
         this.upsert = upsert;
     }
