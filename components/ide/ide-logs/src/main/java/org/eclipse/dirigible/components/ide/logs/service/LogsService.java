@@ -140,9 +140,11 @@ public class LogsService {
         }
         if (logger.isInfoEnabled()) {
             return Level.INFO.toString();
-        } else if (logger.isWarnEnabled()) {
+        }
+        if (logger.isWarnEnabled()) {
             return Level.WARN.toString();
-        } else if (logger.isErrorEnabled()) {
+        }
+        if (logger.isErrorEnabled()) {
             return Level.ERROR.toString();
         }
 
