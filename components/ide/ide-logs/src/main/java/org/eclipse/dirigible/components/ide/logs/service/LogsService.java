@@ -137,7 +137,8 @@ public class LogsService {
         }
         if (logger.isDebugEnabled()) {
             return Level.DEBUG.toString();
-        } else if (logger.isInfoEnabled()) {
+        }
+        if (logger.isInfoEnabled()) {
             return Level.INFO.toString();
         } else if (logger.isWarnEnabled()) {
             return Level.WARN.toString();
